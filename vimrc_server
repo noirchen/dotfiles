@@ -1,0 +1,143 @@
+" vim:fdm=marker
+
+" Vim configuration on servers
+
+" General Settings {{{
+"
+set laststatus=2                                            " always show status line
+set scrolloff=3                                             " keep 3 lines when scrolling
+set showcmd                                                 " display incomplete commands
+set term=xterm-256color
+set mouse=a                                                 " use a mouse
+set ttyfast
+set cursorline                                              " highlight the current line
+set novisualbell                                            " turn off visual bell
+set nobackup                                                " do not keep a backup file
+set noswapfile
+set nowritebackup
+set relativenumber
+set display+=lastline
+set ignorecase                                              " ignore case when searching
+set title                                                   " show title in console title bar
+set clipboard+=unnamed                                      " share the yank register
+set nostartofline                                           " don't jump to first character
+set whichwrap+=h,l,<,>,[,]                                  " move freely between files
+set showbreak=↪                                             " better line wraps
+set shortmess=aoOtI                                         " abbreviate messages
+set diffopt+=vertical                                       " default vertical diff split
+set lazyredraw
+set noautoindent
+set nosmartindent
+set switchbuf=usetab
+set et|retab
+set showmatch                                               " show matching braces
+set matchtime=5
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set backspace=indent,eol,start                              " set backspace
+set tabstop=4 shiftwidth=4 expandtab                        " numbers of spaces to (auto)indent
+filetype off
+filetype plugin on
+filetype plugin indent on
+filetype indent on
+syntax on                                                   " syntax highlighing
+set iskeyword+=_,$,@,%,#,-                                  " do not split words with these
+set wildmenu
+set wildmode=longest,list,full
+let &t_SI="\<Esc>]50;CursorShape=1\x7"                      " Vertical bar in insert mode
+let &t_EI="\<Esc>]50;CursorShape=0\x7"                      " Block in normal mode
+" }}}
+
+" Command related {{{
+"
+" automatically change directory
+autocmd BufEnter * silent! lcd %:p:h
+"
+" disable auto commenting
+autocmd BufEnter * set formatoptions -=cro
+"
+" resize splits when the window is resized
+autocmd VimResized * :wincmd =
+"
+" automatic strip trailing white spaces
+autocmd BufWritePre * :%s/\s\+$//e
+"
+" automatic remove zero-width spaces
+autocmd BufWritePre * :%s/\%u200b//e
+"
+" automatically wrap and indent
+autocmd Filetype tex,matlab,python,sh
+            \ nnoremap <leader>w gg=G''
+"
+" automatically chmod +x Shell, Perl and Python scripts
+autocmd BufWritePost *.sh,*.pl,*.py,*.gmt silent !chmod +x %
+"
+" jump to last position
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") |
+            \ exe "normal! g`\"" | endif
+"
+" folding
+autocmd Filetype tex,matlab normal zR
+"
+" bubbling lines
+nmap <s-u> ddkP
+nmap <s-d> ddp
+vmap <s-u> xkP`[V`]
+vmap <s-d> xp`[V`]
+"
+" markdown conversion
+autocmd BufEnter,BufNewFile *.md set filetype=markdown
+" }}}
+
+" Mapping related {{{
+"
+inoremap jk <esc>
+cabbrev ew :wq                                              " make :ew quit
+nnoremap <F2> :edit!<cr>
+nnoremap j gj
+nnoremap k gk
+if &diff
+    set nonumber
+    nnoremap j gj
+    nnoremap k gk
+endif
+nnoremap ; :
+vnoremap ; :
+vmap > >gv                                                  " Preserve selection after indentation
+vmap < <gv
+vmap <tab> >gv                                              " Map tab to indent in visual mode
+vmap <s-tab> <gv
+nnoremap <tab> %
+nnoremap <space><space> V
+noremap H ^
+noremap L $
+vnoremap L g_                                               " Easy moving
+nnoremap vv ^vg_
+nnoremap ,w <c-w>
+vnoremap <leader>y "+y
+vnoremap <leader>d "+d
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+nnoremap <s-h> <c-w>h
+nnoremap <s-j> <c-w>j
+nnoremap <s-k> <c-w>k
+nnoremap <s-l> <c-w>l
+nnoremap <leader>v <c-w>v<c-w>l
+nnoremap <leader>h <c-w>s<c-w>l
+nnoremap ,, <c-^>
+nnoremap bn :bn<cr>
+nnoremap bp :bp<cr>
+noremap ,c :bd<cr>
+nnoremap <silent><leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>c :set list!<cr>
+nnoremap <leader>l :set number!<cr>
+nnoremap <leader>o :set paste!<cr>
+nnoremap <leader>ws :%s![^ ]\zs \+! !g<cr>:nohlsearch<cr>
+nnoremap <leader>bl :%!cat -s<cr>
+" auto-save when leave insert mode
+autocmd InsertLeave * if expand('%') != '' | update | endif
+" }}}

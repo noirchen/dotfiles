@@ -1,0 +1,23 @@
+[
+  {
+    "id": "file",
+    "children":
+    [
+      {
+        "id": "sublimetmpl",
+        "caption": "New File (SublimeTmpl)",
+        "children":
+        [
+          {
+           "id": "lammps",
+           "caption": "lammps",
+           "command": "sublime_tmpl",
+           "args": {
+             "type": "lammps"
+           }
+         },
+       ]
+      }
+    ]
+  },
+]

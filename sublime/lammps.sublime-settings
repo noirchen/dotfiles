@@ -1,0 +1,11 @@
+{
+	"extensions":
+	[
+		"lammps"
+	],
+	"rulers":
+	[
+		80
+	],
+    "auto_wrap" : true
+}

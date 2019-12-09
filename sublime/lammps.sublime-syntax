@@ -1,0 +1,40 @@
+%YAML 1.2
+---
+name: LAMMPS
+file_extensions: [in,lammps]
+scope: source.lammps
+
+contexts:
+  main:
+  - comment: comment in lammps
+    scope: comment.line.number-sign
+    match: \#.+
+
+  - comment: digits
+    scope: constant.numeric
+    match: \b[0-9]+([.][0-9]+)?\b
+
+  - comment: style keyword
+    scope: keyword.operator.lammps
+    match: \b(all|angle_coeff|angle_style|atom_style|atomz_modify|bond_coeff|bond_style|boundary|change_box|clear|comm_style|compute|compute_modify|create_atoms|create_box|delete_atoms|delete_bonds|dielectric|dihedral_coeff|dihedral_style|dimension|displace_atoms|echo|fix_modify|group|if|improper_coeff|improper_style|include|jump|kspace_modify|kspace_style|label|lattice|log|mass|min_modify|min_style|minimize|neigh_modify|neighbor|newton|next|pair_coeff|pair_modify|pair_style|pair_write|print|processors|region|replicate|rerun|reset_timestep|run|run_style|set|shell|special_bonds|temper|thermo|thermo_modify|thermo_style|timestep|uncompute|units|variable|velocity|write_data)\b
+
+  - comment: read and write data
+    scope: markup.bold.lammps
+    match: \b(read_data|read_dump|read_restart|restart|write_restart|dump|dump_modify|undump|write_dump)\b(.+)
+    captures:
+      1 : markup.quote.lammps
+      2 : string.quoted.double
+
+  - comment: fix and unfix
+    scope: markup.quote.lammps
+    match: \b(fix|unfix)\b
+    captures:
+      1 : string.quoted.double.lammps
+
+  - comment: fix commands
+    scope: string.quoted.other
+    match: \b(adapt|addforce|append/atoms|atom/swap|ave/atom|ave/chunk|ave/correlate|ave/histo|ave/spatial|ave/time|aveforce|balance|bond/break|bond/create|bond/swap|box/relax|colvar|deform|deposit|drag|dt/reset|efield|enforce2d|evaporate|external|freeze|gcmc|gld|gravity|heat|indent|langevin|lineforce|momentum|move|msst|neb|nph|nph/asphere|nph/body|nph/sphere|nphug|npt|npt/asphere|npt/body|npt/sphere|nve|nve/asphere|nve/asphere/noforce|nve/body|nve/limit|nve/line|nve/noforce|nve/sphere|nve/tri|nvt|nvt/asphere|nvt/body|nvt/sllod|nvt/sphere|oneway|orient/fcc|planeforce|plumed|poems|pour|press/berendsen|print|property/atom|qeq/comb|reax/bonds|restrain|rigid|rigid/nph|rigid/npt|rigid/nve|rigid/nvt|rigid/small|rigid/small/nph|rigid/small/npt|rigid/small/nve|rigid/small/nvt|setforce|shake|smd|spring|spring/rg|spring/self|srd|store/force|store/state|temp/berendsen|temp/csld|temp/csvr|temp/rescale|tfmc|thermal/conductivity|tmd|ttm|tune/kspace|vector|viscosity|viscous|wall/colloid|wall/gran|wall/harmonic|wall/lj1043|wall/lj126|wall/lj93|wall/piston|wall/reflect|wall/region|wall/srd)\b
+
+  - comment: fix keyword
+    scope: storage.type.lammps
+    match: \b(aniso|couple|custom|dilate|drag|ecoul|etotal|evdwl|fixedpoint|flip|iso|ke|mtk|nreset|pchain|pe|ploop|press|pxx|pyy|pzz|scalexy|scalexz|scaleyz|step|tchain|temp|tloop|tri|update|x|xy|xz|y|yz|z)\b

@@ -1,0 +1,10 @@
+{
+    "lammps": {
+        "syntax": "Packages/User/lammps.sublime-syntax",
+        "extension": "in"
+    },
+    "disabled_keymap_actions": "all",
+    "attr": {
+        "author": "Jiangzhi",
+    }
+}

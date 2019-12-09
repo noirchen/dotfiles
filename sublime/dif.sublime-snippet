@@ -1,0 +1,5 @@
+<snippet>
+    <content><![CDATA[\dv{${1:function}}{${2:variable}}]]></content>
+    <tabTrigger>dif</tabTrigger>
+    <scope>text.tex.latex</scope>
+</snippet>

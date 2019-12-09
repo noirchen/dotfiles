@@ -1,0 +1,5 @@
+<snippet>
+    <content><![CDATA[\left\\{${1}\right\\}]]></content>
+    <tabTrigger>left</tabTrigger>
+    <scope>text.tex.latex</scope>
+</snippet>

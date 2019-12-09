@@ -1,0 +1,5 @@
+<snippet>
+    <content><![CDATA[\pdv{${1:function}}{${2:variable}}]]></content>
+    <tabTrigger>pdif</tabTrigger>
+    <scope>text.tex.latex</scope>
+</snippet>

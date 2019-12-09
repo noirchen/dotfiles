@@ -1,0 +1,7 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Jiangzhi Chen
+	email = chenjz@idsse.ac.cn
+[core]
+	excludesfile = /Users/username/.gitignore_global

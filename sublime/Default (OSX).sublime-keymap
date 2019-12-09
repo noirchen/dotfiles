@@ -1,0 +1,22 @@
+[
+  {
+    "keys": [
+      "ctrl+alt+l"
+    ],
+    "command": "sublime_tmpl",
+    "args": {
+      "type": "lammps"
+    },
+    "context": [
+      {
+        "key": "sublime_tmpl.in"
+      }
+    ]
+  },
+  {
+    "keys": [
+      "ctrl+alt+y"
+    ],
+    "command": "yapf_selection"
+  },
+]

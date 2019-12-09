@@ -1,0 +1,7 @@
+// These settings override both User and Default settings for the gnuplot syntax
+{
+    "rulers": [
+        78
+    ],
+    "auto_wrap" : true
+}

@@ -1,0 +1,50 @@
+{
+	"auto_complete_selector": "source, text",
+	"auto_complete_triggers":
+	[
+		{
+			"characters": "<",
+			"selector": "text.html"
+		},
+		{
+			"characters": "\\",
+			"selector": "text.tex.latex"
+		}
+	],
+	"bold_folder_labels": true,
+	"caret_extra_width": 1,
+	"caret_style": "phase",
+	"close_windows_when_empty": true,
+	"color_scheme": "Packages/Nord/Nord.sublime-color-scheme",
+	"copy_with_empty_selection": false,
+	"dictionary": "Packages/Language - English/en_US.dic",
+	"draw_minimap_border": true,
+	"draw_white_space": "all",
+	"fade_fold_buttons": false,
+	"font_face": "monofur for Powerline",
+	"font_options": "subpixel_antialias",
+	"font_size": 15,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+	],
+	"line_padding_bottom": 2,
+	"line_padding_top": 2,
+	"overlay_scroll_bars": "enabled",
+	"reveal-on-activate": true,
+	"save_on_focus_lost": true,
+	"scroll_past_end": true,
+	"show_full_path": true,
+	"spell_check": true,
+	"strip_whitespace_lines_on_save": true,
+	"tab_size": 4,
+	"tabs_small": true,
+	"theme": "Meetio-Theme.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"vintage_start_in_command_mode": true,
+	"wide_caret": true,
+	"word_wrap": true
+}

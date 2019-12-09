@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 8,
+      "subtext" : {
+        "size" : 14,
+        "colorSelected" : "#FFD610E0",
+        "font" : "Baskerville",
+        "color" : "#00000000"
+      },
+      "shortcut" : {
+        "size" : 13,
+        "colorSelected" : "#464A56FF",
+        "font" : "Futura",
+        "color" : "#B5E3FF00"
+      },
+      "backgroundSelected" : "#1620340A",
+      "text" : {
+        "size" : 20,
+        "colorSelected" : "#FFD610E0",
+        "font" : "Menlo",
+        "color" : "#8D8D8DFF"
+      },
+      "iconPaddingHorizontal" : 5,
+      "paddingVertical" : 8,
+      "iconSize" : 40
+    },
+    "search" : {
+      "paddingVertical" : 2,
+      "background" : "#16203400",
+      "spacing" : 10,
+      "text" : {
+        "size" : 36,
+        "colorSelected" : "#40B7CFFF",
+        "font" : "Georgia",
+        "color" : "#FFD610E0"
+      },
+      "backgroundSelected" : "#CDCDCDFF"
+    },
+    "window" : {
+      "color" : "#162034DB",
+      "paddingHorizontal" : 10,
+      "width" : 620,
+      "borderPadding" : 10,
+      "borderColor" : "#B4E1FF00",
+      "blur" : 0,
+      "roundness" : 20,
+      "paddingVertical" : 10
+    },
+    "credit" : "Yorgos Voyiatzis",
+    "separator" : {
+      "color" : "#162034DB",
+      "thickness" : 1
+    },
+    "scrollbar" : {
+      "color" : "#52E4FF00",
+      "thickness" : 2
+    },
+    "name" : "Nazar (v2)"
+  }
+}
