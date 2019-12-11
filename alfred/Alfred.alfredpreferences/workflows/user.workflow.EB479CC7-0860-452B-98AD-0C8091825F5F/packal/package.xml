@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>New Files</name>
-  <version>1.0</version>
-  <bundle>cpimhoff.newFiles</bundle>
-  <updated>1463687708</updated>
-  <file>new_files.alfredworkflow</file>
-</workflow>

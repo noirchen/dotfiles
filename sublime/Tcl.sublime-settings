@@ -1,7 +1,0 @@
-// These settings override both User and Default settings for the Tcl syntax
-{
-    "rulers" :
-    [
-        78
-    ]
-}
