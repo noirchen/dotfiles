@@ -1,3 +1,4 @@
+# for mac and windows
 export ZSH=$HOME/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
 ZSH_THEME="spaceship"
@@ -117,7 +118,10 @@ alias clean="rm -f \#*\#"
 
 # ssh
 inspur() {
-    ssh -Y chenjiangzhi@10.10.15.200
+    ssh -Yy chenjiangzhi@10.10.15.200
+}
+marvin() {
+    ssh -Yy cjz@10.2.21.177
 }
 
 # rsync

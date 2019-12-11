@@ -154,4 +154,3 @@ hash free 2>/dev/null || free () { top -l 1 -s 0 | grep -m 1 PhysMem ; }
 # # ssh
 # alias newberry="ssh jiangzhi@newberry.uoregon.edu"
 # alias aciss="ssh -X jiangzhi@aciss.uoregon.edu"
-
