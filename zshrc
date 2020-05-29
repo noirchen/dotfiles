@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
 ZSH_THEME="spaceship"
 if [[ $OSTYPE == darwin* ]]; then
-    plugins=(sublime web-search osx zsh-syntax-highlighting)
+    plugins=(web-search osx zsh-syntax-highlighting)
 else
     plugins=(command-not-found web-search zsh-syntax-highlighting)
 fi
@@ -98,8 +98,8 @@ fi
 # It is better to add the path to /etc/paths
 export PYTHONPATH=$DROPBOX/Research/Scripts/code/python/:$PYTHONPATH
 
-# sublime
-alias zshconfig="subl ~/.zshrc"
+alias zshconfig="vi ~/.zshrc"
+[[ -d /Applications/CotEditor.app ]] && alias cot="/Applications/CotEditor.app/Contents/SharedSupport/bin/cot"
 
 # typora
 [[ $OSTYPE == darwin* ]] && alias typora="open -a /Applications/Typora.app"
@@ -121,7 +121,10 @@ inspur() {
     ssh -Yy chenjiangzhi@10.10.15.200
 }
 marvin() {
-    ssh -Yy cjz@10.2.21.177
+    ssh -Yy chenjz@10.2.21.187
+}
+th() {
+    ssh -i .nscc/nscc_key idsse_jzchen_1@172.16.22.11
 }
 
 # rsync
@@ -132,6 +135,10 @@ send() {
 fetch() {
     # fetch a remote file or folder to current folder
     rsync -ravz --exclude=.DS_Store chenjiangzhi@10.10.15.200:~/sync/"$1" .
+}
+push() {
+    # push to marvin
+    rsync -avzHP ~/Dropbox chenjz@10.2.21.187:~/
 }
 
 # >>> conda initialize >>>

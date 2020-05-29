@@ -105,6 +105,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'chip/vim-fat-finger'
 Plugin 'tpope/vim-eunuch'
 Plugin 'osyo-manga/vim-brightest'
+Plugin 'JuliaEditorSupport/julia-vim'
+autocmd BufRead,BufNewFile *.jl set filetype=julia
 "
 Plugin 'kana/vim-operator-user'
 Plugin 'haya14busa/vim-operator-flashy'

@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 DISABLE_UPDATE_PROMPT=true
 ZSH_THEME="bira"
 if [[ $OSTYPE == darwin* ]]; then
-    plugins=(sublime web-search osx zsh-syntax-highlighting)
+    plugins=(web-search osx zsh-syntax-highlighting)
 else
     plugins=(command-not-found web-search zsh-syntax-highlighting)
 fi
@@ -17,8 +17,6 @@ setopt correct
 export SOURCEFILE=$HOME/.zshrc
 [[ ! -f ~/.zprofile ]] && ln -s ~/.zshrc ~/.zprofile
 alias sbp="source ~/.zshrc"
-
-# software and scripts
 
 # snippets
 alias lsd="ls -lht | grep --color=never '^d'"
@@ -36,8 +34,10 @@ alias v=vim
 alias vi=vim
 alias d='vim -c"windo set wrap" -d $*'
 export EDITOR=vim
+alias zshconfig='v ~/.zshrc'
 
-# sync
+# aria
+alias aria2c="aria2c --conf-path=$HOME/.aria2/aria2.conf"
 
 # git
 alias gb="git branch -avv"
@@ -52,11 +52,22 @@ git commit -m "$1";
 git push;
 }
 
+# software and scripts
+
 # matlab
 # alias matlab="matlab -nodesktop -nosplash"
 
+# cuda
+export PATH=/usr/local/cuda-10.2/bin:/usr/local/cuda-10.2/nsight-compute-2019.5.0:$PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.2/lib64
+
+# openmpi
+export PATH=$PATH:$HOME/Software/openmpi/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/Software/openmpi/lib
+
 # gromacs
-# export GMXLIB=$HOME/OneDrive/model/md/gromacs/GMXLIB
+# export GMXLIB=$HOME/model/md/gromacs/GMXLIB
+source $HOME/Software/gromacs-2020.2/bin/GMXRC
 alias clean="rm -f \#*\#"
 
 # ssh
@@ -76,15 +87,26 @@ fetch() {
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/anaconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/Software/anaconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0  ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/opt/anaconda/etc/profile.d/conda.sh"  ]; then
-        . "/opt/anaconda/etc/profile.d/conda.sh"
+    if [ -f "$HOME/Software/anaconda/etc/profile.d/conda.sh"  ]; then
+        . "$HOME/Software/anaconda/etc/profile.d/conda.sh"
     else
-        export PATH="/opt/anaconda/bin:$PATH"
+        export PATH="$HOME/Software/anaconda/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+update() {
+    echo "Upgrade Centos"
+    sudo dnf update
+    sudo dnf upgrade
+    sudo dnf clean all
+    echo "Upgrading Anaconda"
+    conda upgrade --all -y
+    conda update --all -y
+    conda clean --all -y
+}
